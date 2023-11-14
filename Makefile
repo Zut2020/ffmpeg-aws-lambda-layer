@@ -6,7 +6,8 @@ clean:
 build/layer/bin/ffmpeg: 
 	mkdir -p build/layer/bin
 	rm -rf build/ffmpeg*
-	cd build && curl https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz | tar x
+	cd build && wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+	cd build && tar -xf ffmpeg-release-amd64-static.tar.xz
 	mv build/ffmpeg*/ffmpeg build/ffmpeg*/ffprobe build/layer/bin
 
 build/output.yaml: template.yaml build/layer/bin/ffmpeg
